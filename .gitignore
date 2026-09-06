@@ -28,3 +28,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Archivo de modulo de IntelliJ (config de tu maquina, no codigo)
+*.iml
+.idea/
