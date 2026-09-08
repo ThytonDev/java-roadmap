@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GestorInventario {
     public static void main() {
@@ -13,7 +14,46 @@ public class GestorInventario {
         //Listar inventario
         inventario.listar();
         System.out.println(inventario.calcularValorTotalInventario());
-        inventario.buscarPorNombre("Roble");
-        inventario.buscarPorNombre("Dragon");
+
+        //Crear Menu
+        Scanner sc = new Scanner(System.in);
+        boolean salir = false;
+
+        while (!salir) {
+            System.out.println("1)Listar Productos");
+            System.out.println("2)Ver Valor Total");
+            System.out.println("3)Buscar un Producto");
+            System.out.println("4)Vender un Producto");
+            System.out.println("5)Salir");
+
+            int opcion = sc.nextInt();
+            sc.nextLine();   // línea de limpieza: se traga el \n fantasma que dejó nextInt()
+
+            switch (opcion) {
+                case 1 -> inventario.listar();
+                case 2 -> System.out.println(inventario.calcularValorTotalInventario());
+                case 3 -> {
+                    System.out.println("Que producto buscas?");
+                    Producto producto = inventario.buscarPorNombre(sc.nextLine());
+                    if (producto != null) {
+                        System.out.println(producto.describir());
+                    } else {
+                        System.out.println("Producto no encontrado");
+                    }
+                }
+                case 4 -> {
+                    System.out.println("Que producto quieres vender?");
+                    Producto producto = inventario.buscarPorNombre(sc.nextLine());
+                    if (producto != null) {
+                        System.out.println("Cuantos quieres vender?");
+                        producto.vender(sc.nextInt());
+                    } else {
+                        System.out.println("Producto no encontrado");
+                    }
+                }
+                case 5 -> salir = true;
+                default -> System.out.println("Opcion no valida");
+            }
+        }
     }
 }

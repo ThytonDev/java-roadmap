@@ -16,18 +16,13 @@ public class Inventario {
     }
 
     //Metodo buscar por nombre.
-    public void buscarPorNombre(String nombre) {
-        Producto encontrado = null;
+    public Producto buscarPorNombre(String nombre) {
         for (Producto p : this.productos) {
             if (nombre.equals(p.getNombre())) {
-                encontrado = p;
+                return p;
             }
         }
-        if (encontrado != null){
-            System.out.println(encontrado.describir());
-        } else {
-            System.out.println("No se encontro este producto");
-        }
+        return null;
     }
 
     //Metodo calcularValorTotalInventario.
