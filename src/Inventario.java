@@ -37,5 +37,6 @@ public class Inventario {
             valorTotal = valorTotal + p.calcularValorTotal();
         }
         return valorTotal;
+
     }
 }
