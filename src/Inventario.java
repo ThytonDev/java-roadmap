@@ -14,4 +14,28 @@ public class Inventario {
             System.out.println(p.describir());
         }
     }
+
+    //Metodo buscar por nombre.
+    public void buscarPorNombre(String nombre) {
+        Producto encontrado = null;
+        for (Producto p : this.productos) {
+            if (nombre.equals(p.getNombre())) {
+                encontrado = p;
+            }
+        }
+        if (encontrado != null){
+            System.out.println(encontrado.describir());
+        } else {
+            System.out.println("No se encontro este producto");
+        }
+    }
+
+    //Metodo calcularValorTotalInventario.
+    public double calcularValorTotalInventario() {
+        double valorTotal = 0;
+        for (Producto p : this.productos){
+            valorTotal = valorTotal + p.calcularValorTotal();
+        }
+        return valorTotal;
+    }
 }

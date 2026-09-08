@@ -12,5 +12,8 @@ public class GestorInventario {
         inventario.agregar(new Producto("Bambu", 1.5, 95));
         //Listar inventario
         inventario.listar();
+        System.out.println(inventario.calcularValorTotalInventario());
+        inventario.buscarPorNombre("Roble");
+        inventario.buscarPorNombre("Dragon");
     }
 }
