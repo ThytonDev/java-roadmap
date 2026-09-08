@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class HolaMundo {
     public static void main(String[] args) {
         System.out.println("Hola, mundo");
@@ -81,9 +83,25 @@ public class HolaMundo {
         System.out.println(mouse.describir());
         System.out.println(sillaGamer.describir());
 
-        mouse.vender(15);
+        mouse.vender(5);
         System.out.println(mouse.describir());
         System.out.println(mouse.calcularValorTotal());
+
+        //Lecccion 13 ArrayList ---al inicio--- import.java.util.ArrayList;
+        ArrayList<Producto> inventario = new ArrayList<>();
+        inventario.add(new Producto("Naranja", 0.50,10));
+        inventario.add(new Producto("Sandia", 2.0, 5));
+        inventario.add(new Producto("Fresas", 0.75, 20));
+        inventario.add(new Producto("Mango", 1.5, 15));
+
+        double valorTotal = 0;
+
+        for (Producto i : inventario) {
+            System.out.println(i.describir());
+            valorTotal = valorTotal + i.calcularValorTotal();
+        }
+        System.out.println("Hay "+ inventario.size() + " productos en el inventario.");
+        System.out.println("El valor total de todos los productos es: " + valorTotal);
 
 
     }
