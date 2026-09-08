@@ -67,15 +67,16 @@ public class HolaMundo {
             System.out.println(evaluarNumero(i));
         }
 
-        Producto mouse = new Producto();
-        mouse.setNombre("Mouse Razer Naga Trinity");
-        mouse.setPrecio(112.50);
-        mouse.setStock(10);
+        Producto mouse = new Producto("Mouse Razer Naga Trinity", 112.50, 10);
 
-        Producto sillaGamer = new Producto();
-        sillaGamer.setNombre("Silla Gamer Secretlab");
-        sillaGamer.setPrecio(220.99);
-        sillaGamer.setStock(5);
+
+        //Constructor Personalizado:
+        Producto sillaGamer = new Producto("Silla Gamer Secretlab", 220.99, 5);
+        //Constructor default, hay que poner los datos aparte
+        //Producto sillaGamer = new Producto();
+        //sillaGamer.setNombre("Silla Gamer Secretlab");
+        //sillaGamer.setPrecio(220.99);
+        //sillaGamer.setStock(5);
 
         System.out.println(mouse.describir());
         System.out.println(sillaGamer.describir());
